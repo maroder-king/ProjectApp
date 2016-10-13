@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  comments: MyText
+  status: false
+  start_date: 2016-10-13
+  due_date: 2016-10-13
+  estimation: 1
+
+two:
+  title: MyString
+  comments: MyText
+  status: false
+  start_date: 2016-10-13
+  due_date: 2016-10-13
+  estimation: 1
