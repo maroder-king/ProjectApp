@@ -1,2 +1,6 @@
 class Project < ActiveRecord::Base
+  has_many :tasks
+  has_many :teams
+  has_many :posts
+
 end
