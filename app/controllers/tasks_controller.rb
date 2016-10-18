@@ -4,7 +4,9 @@ class TasksController < ApplicationController
   # GET /tasks
   # GET /tasks.json
   def index
-    @tasks = current_user.tasks
+    @to_do = current_user.tasks.where(status: "to_do")
+    @doing = current_user.tasks.where(status: "doing")
+    @done = current_user.tasks.where(status: "done")
   end
 
   # GET /tasks/1

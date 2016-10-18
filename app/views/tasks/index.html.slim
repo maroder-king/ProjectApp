@@ -1,4 +1,4 @@
-h1 Listing tasks
+h1 To Do
 
 table
   thead
@@ -14,7 +14,7 @@ table
       th
 
   tbody
-    - @tasks.each do |task|
+    - @to_do.each do |task|
       tr
         td = task.title
         td = task.comments
@@ -24,8 +24,68 @@ table
         td = task.estimation
         td = link_to 'Show', task
         td = link_to 'Edit', edit_task_path(task)
-        td = link_to 'Destroy', task, data: { confirm: 'Are you sure?' }, method: :delete
+        td = link_to 'Destroy', task, data: {confirm: 'Are you sure?'}, method: :delete
 
 br
+
+  h1 Doing
+
+  table
+    thead
+      tr
+        th Title
+        th Comments
+        th Status
+        th Start date
+        th Due date
+        th Estimation
+        th
+        th
+        th
+
+    tbody
+      - @doing.each do |task|
+        tr
+          td = task.title
+          td = task.comments
+          td = task.status
+          td = task.start_date
+          td = task.due_date
+          td = task.estimation
+          td = link_to 'Show', task
+          td = link_to 'Edit', edit_task_path(task)
+          td = link_to 'Destroy', task, data: {confirm: 'Are you sure?'}, method: :delete
+
+  br
+
+    h1 Done
+
+    table
+      thead
+        tr
+          th Title
+          th Comments
+          th Status
+          th Start date
+          th Due date
+          th Estimation
+          th
+          th
+          th
+
+      tbody
+        - @done.each do |task|
+          tr
+            td = task.title
+            td = task.comments
+            td = task.status
+            td = task.start_date
+            td = task.due_date
+            td = task.estimation
+            td = link_to 'Show', task
+            td = link_to 'Edit', edit_task_path(task)
+            td = link_to 'Destroy', task, data: {confirm: 'Are you sure?'}, method: :delete
+
+    br
 
 = link_to 'New Task', new_task_path
