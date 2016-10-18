@@ -12,6 +12,7 @@ table
       th
       th
       th
+      th
 
   tbody
     - @to_do.each do |task|
@@ -25,6 +26,7 @@ table
         td = link_to 'Show', task
         td = link_to 'Edit', edit_task_path(task)
         td = link_to 'Destroy', task, data: {confirm: 'Are you sure?'}, method: :delete
+        td = link_to 'Mark as Doing', change_task_path(task, status: 'doing'), method: :put
 
 br
 
@@ -55,6 +57,8 @@ br
           td = link_to 'Show', task
           td = link_to 'Edit', edit_task_path(task)
           td = link_to 'Destroy', task, data: {confirm: 'Are you sure?'}, method: :delete
+          td = link_to 'Mark as To Do', change_task_path(task, status: 'to_do'), method: :put
+          td = link_to 'Mark as Done', change_task_path(task, status: 'done'), method: :put
 
   br
 
@@ -85,6 +89,7 @@ br
             td = link_to 'Show', task
             td = link_to 'Edit', edit_task_path(task)
             td = link_to 'Destroy', task, data: {confirm: 'Are you sure?'}, method: :delete
+            td = link_to 'Mark as Doing', change_task_path(task, status: 'doing'), method: :put
 
     br
 

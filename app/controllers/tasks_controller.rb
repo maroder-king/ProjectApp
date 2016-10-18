@@ -1,12 +1,13 @@
 class TasksController < ApplicationController
-  before_action :set_task, only: [:show, :edit, :update, :destroy]
+  before_action :set_task, only: [:show, :edit, :update, :destroy, :change]
 
   # GET /tasks
   # GET /tasks.json
   def index
-    @to_do = current_user.tasks.where(status: "to_do")
-    @doing = current_user.tasks.where(status: "doing")
-    @done = current_user.tasks.where(status: "done")
+    @to_do = current_user.tasks.where(status: 'to_do')
+    @doing = current_user.tasks.where(status: 'doing')
+    @done = current_user.tasks.where(status: 'done')
+
   end
 
   # GET /tasks/1
@@ -60,6 +61,13 @@ class TasksController < ApplicationController
     respond_to do |format|
       format.html { redirect_to tasks_url, notice: 'Task was successfully destroyed.' }
       format.json { head :no_content }
+    end
+  end
+
+  def change
+    @task.update_attributes(status: params[:status])
+    respond_to do |format|
+      format.html { redirect_to tasks_path, notice: 'Task status successfully changed' }
     end
   end
 
