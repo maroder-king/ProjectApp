@@ -8,16 +8,12 @@
 </head>
 <body>
 
+<%= render partial: 'layouts/header' %>
 
-<% if user_signed_in? %>
-    <%= link_to "Sing out", destroy_user_session_path, method: :delete %>
 
-<% else %>
-    <%= link_to "Sing up", new_user_registration_path %>
-    <%= link_to "Sing in", new_user_session_path %>
-<% end %>
 
+<div class="container">
 <%= yield %>
-
+</div>
 </body>
 </html>

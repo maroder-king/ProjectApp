@@ -48,5 +48,7 @@ end
 gem 'devise'
 gem 'slim-rails'
 gem 'bootstrap-sass'
+gem 'font-awesome-rails'
 gem 'cancan'
 gem 'factory_girl'
+gem 'simple_form'
