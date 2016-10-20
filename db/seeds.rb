@@ -5,3 +5,10 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+
+
+#3.times {FactoryGirl.create(:team)}
+#3.times {FactoryGirl.create(:task)}
+#3.times {FactoryGirl.create(:post)}
+#3.times {FactoryGirl.create(:project)}

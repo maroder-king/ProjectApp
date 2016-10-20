@@ -1,17 +1,16 @@
 h1.text-center Dashboard
 
-.container
+.row.text-center
+  .col-md-3
 
-  .default-block
-    h2 Stats
-    .row
-      .col-sm-4.col-md-3
-        h3
-          = link_to "Active Tasks ( #{@tasks_active} )", tasks_path, class: "btn btn-warning btn-margin"
-        br
-          = link_to "Done Tasks ( #{@tasks_done} )", tasks_path, class: "btn btn-success btn-margin"
-  .col-sm-4.col-md-3
-    h3
+  .col-md-6
+    = link_to "Posts ( #{@posts} )", posts_path, class: "btn btn-default btn-margin"
+    br
+    = link_to "Projects ( #{@projects} )", projects_path, class: "btn btn-warning btn-margin"
+    br
+    = link_to "Active Tasks ( #{@tasks_active} )", tasks_path, class: "btn btn-info btn-margin"
+    br
+    = link_to "Done Tasks ( #{@tasks_done} )", tasks_path, class: "btn btn-success btn-margin"
 
-  .col-sm-4.col-md-3
-    h3
+  .col-md-3
+
