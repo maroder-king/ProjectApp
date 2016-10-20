@@ -1,27 +1,13 @@
-h1 Listing projects
+p#notice= notice
+.row
+  .col-md-3
 
-table
-  thead
-    tr
-      th Name
-      th Summary
-      th Start date
-      th End date
-      th
-      th
-      th
+  .col-md-6
+    h1.text-center Projects
+    = render @projects
+  .col-md-3
 
-  tbody
-    - @projects.each do |project|
-      tr
-        td = project.name
-        td = project.summary
-        td = project.start_date
-        td = project.end_date
-        td = link_to 'Show', project
-        td = link_to 'Edit', edit_project_path(project)
-        td = link_to 'Destroy', project, data: { confirm: 'Are you sure?' }, method: :delete
-
+br
 br
 
 = link_to 'New Project', new_project_path

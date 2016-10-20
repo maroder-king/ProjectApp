@@ -1,0 +1,16 @@
+.panel.panel-info
+  .panel-heading
+    -if can? :edit , post
+      = link_to edit_post_path(post) do
+        | Created #{time_ago_in_words(post.created_at)} ago
+        | &nbsp; &nbsp; &nbsp;&nbsp;
+    -if can? :destroy, post
+      = link_to 'X', post_path(post), method: :delete, data: {confirm: "Are you sure?"}, class: 'pull-right'
+    -else
+      | Created #{time_ago_in_words(post.created_at)} ago
+
+  .panel.panel-primary.text-center = post.content
+  .panel-body.text-center = post.comments
+
+
+br

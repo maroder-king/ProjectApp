@@ -1,0 +1,16 @@
+.panel.panel-info
+  .panel-heading
+
+      = link_to edit_project_path(project) do
+        | Created #{time_ago_in_words(project.created_at)} ago
+        | &nbsp; &nbsp; &nbsp;&nbsp;
+        = link_to 'Show', project
+        = link_to 'X', project_path(project), method: :delete, data: {confirm: "Are you sure?"}, class: 'pull-right'
+
+
+
+  .panel.panel-primary.text-center = project.name
+  .panel-body.text-center = project.summary
+
+
+br

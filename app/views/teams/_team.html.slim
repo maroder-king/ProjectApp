@@ -1,0 +1,11 @@
+.panel.panel-info
+  .panel-heading
+
+    = link_to edit_team_path(team) do
+      | Created #{time_ago_in_words(team.created_at)} ago
+      | &nbsp; &nbsp; &nbsp;&nbsp;
+      = link_to 'X', team_path(team), method: :delete, data: {confirm: "Are you sure?"}, class: 'pull-right'
+
+  .panel.panel-primary.text-center = team.name
+
+br

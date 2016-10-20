@@ -1,25 +1,13 @@
-h1 Listing posts
+p#notice= notice
+.row
+  .col-md-3
 
-table
-  thead
-    tr
-      th Content
-      th Comments
-      th
-      th
-      th
-
-  tbody
-    - @posts.each do |post|
-      tr
-        td = post.content
-        td = post.comments
-        td = link_to 'Show', post
-        - if can? :update, post
-         td = link_to 'Edit', edit_post_path(post)
-         - if can? :destroy, post
-          td = link_to 'Destroy', post, data: { confirm: 'Are you sure?' }, method: :delete
+  .col-md-6
+      h1.text-center Posts
+      = render @posts
+  .col-md-3
 
 br
-
+br
 = link_to 'New Post', new_post_path
+ 
