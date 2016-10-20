@@ -15,8 +15,10 @@ table
         td = post.content
         td = post.comments
         td = link_to 'Show', post
-        td = link_to 'Edit', edit_post_path(post)
-        td = link_to 'Destroy', post, data: { confirm: 'Are you sure?' }, method: :delete
+        - if can? :update, post
+         td = link_to 'Edit', edit_post_path(post)
+         - if can? :destroy, post
+          td = link_to 'Destroy', post, data: { confirm: 'Are you sure?' }, method: :delete
 
 br
 

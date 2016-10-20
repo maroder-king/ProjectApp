@@ -1,27 +1,12 @@
-= form_for @task do |f|
-  - if @task.errors.any?
-    #error_explanation
-      h2 = "#{pluralize(@task.errors.count, "error")} prohibited this task from being saved:"
-      ul
-        - @task.errors.full_messages.each do |message|
-          li = message
-
-  .field
-    = f.label :title
-    = f.text_field :title
-  .field
-    = f.label :comments
-    = f.text_area :comments
-  .field
-    = f.label :status
-    = f.text_field :status
+= simple_form_for(@task, html: {class: 'form-signin'}) do |f|
+  = f.error_notification
+  = f.input :title, required: true, label: false, autofocus: true, placeholder: "Title", input_html: {class: 'form-control'}
+  = f.input :content, required: true, label: false, autofocus: true, placeholder: "Content", input_html: {class: 'form-control'}
+  = f.input :comments, required: false, label: false, autofocus: true, placeholder: "Comments", input_html: {class: 'form-control'}
   .field
     = f.label :start_date
     = f.date_select :start_date
   .field
     = f.label :due_date
     = f.date_select :due_date
-  .field
-    = f.label :estimation
-    = f.number_field :estimation
-  .actions = f.submit
+  = f.button :submit, class: "btn btn-lg btn-primary btn-block"

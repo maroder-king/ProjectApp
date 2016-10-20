@@ -1,60 +1,14 @@
-h1 To Do
-
-table
-  thead
-    tr
-      th Title
-      th Comments
-      th Status
-      th Start date
-      th Due date
-      th Estimation
-      th
-      th
-      th
-      th
-
-  tbody
-    ==render @to_do
-
+p#notice= notice
+.row
+  .col-md-4
+    h1.text-center Todo
+    = render @to_do
+  .col-md-4
+    h1.text-center Doing
+    = render @doing
+  .col-md-4
+    h1.text-center Done
+    = render @done
 br
-
-  h1 Doing
-
-  table
-    thead
-      tr
-        th Title
-        th Comments
-        th Status
-        th Start date
-        th Due date
-        th Estimation
-        th
-        th
-        th
-
-    tbody
-      ==render @doing
-  br
-
-    h1 Done
-
-    table
-      thead
-        tr
-          th Title
-          th Comments
-          th Status
-          th Start date
-          th Due date
-          th Estimation
-          th
-          th
-          th
-
-      tbody
-        ==render @done
-    br
-
 = link_to 'New Task', new_task_path
+ 

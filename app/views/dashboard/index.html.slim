@@ -1,5 +1,17 @@
-h1 Dashboard
+h1.text-center Dashboard
 
-p posts
-= @tasks
+.container
 
+  .default-block
+    h2 Stats
+    .row
+      .col-sm-4.col-md-3
+        h3
+          = link_to "Active Tasks ( #{@tasks_active} )", tasks_path, class: "btn btn-warning btn-margin"
+        br
+          = link_to "Done Tasks ( #{@tasks_done} )", tasks_path, class: "btn btn-success btn-margin"
+  .col-sm-4.col-md-3
+    h3
+
+  .col-sm-4.col-md-3
+    h3

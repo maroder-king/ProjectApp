@@ -9,21 +9,26 @@
         <span class="icon-bar"></span>
       </button>
 
-      
+
       <%= link_to "<i class='fa fa-circle-o-notch'></i>RailsApp".html_safe, authenticated_root_path, class: 'navbar-brand' %>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li><%= link_to 'Tasks', tasks_path %></li>
+        <li><%= link_to 'Posts', posts_path %></li>
+        <li><%= link_to 'Projects', projects_path %></li>
+        <li><%= link_to 'Teams', teams_path %></li>
 
-
+      </ul>
       <ul class="nav navbar-nav navbar-right">
         <% if user_signed_in? %>
             <li><%= link_to 'Edit profile', edit_user_registration_path %></li>
-            <li><%= link_to 'Sign out', destroy_user_session_path, method: :delete %></li>
+            <li><%= link_to 'Sign out', destroy_user_session_path, method: :delete %> </li>
 
         <% else %>
-           <li> <%= link_to 'Sing up', new_user_registration_path %></li>
+            <li> <%= link_to 'Sing up', new_user_registration_path %></li>
             <li><%= link_to 'Sing in', new_user_session_path %></li>
         <% end %>
 

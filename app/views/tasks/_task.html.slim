@@ -1,15 +1,20 @@
-tr
-  td = task.title
-  td = task.comments
-  td = task.status
-  td = task.start_date
-  td = task.due_date
-  td = task.estimation
-  td = link_to 'Show', task
-  td = link_to 'Edit', edit_task_path(task)
-  td = link_to 'Destroy', task, data: {confirm: 'Are you sure?'}, method: :delete
-  - if task.status == 'doing'
-    td= link_to 'Mark as To do', change_task_path(task, status: "to_do"), method: :put
-    td= link_to 'Mark as Done', change_task_path(task, status: "done"), method: :put
-  - else
-    td= link_to 'Mark as Doing', change_task_path(task, status: "doing"), method: :put
+.panel.panel-info
+  .panel-heading
+    = link_to edit_task_path(task) do
+      | Created #{time_ago_in_words(task.created_at)} ago
+      | &nbsp; &nbsp; &nbsp;&nbsp;
+      = link_to 'Show', task
+      = link_to 'X', task_path(task), method: :delete, data: {confirm: "Are you sure?"}, class: 'pull-right'
+
+  .panel.panel-primary.text-center = task.title
+  .panel-body= task.content
+  .panel-footer.text-center
+    .btn-group.btn-group-justified
+      - if task.status == 'doing'
+        = link_to "<i class ='fa fa-arrow-left'></i>".html_safe, change_task_path(task, status: "to_do"), method: :put, class: "btn btn-info btn-md btn-block"
+        = link_to "<i class ='fa fa-arrow-right'></i>".html_safe, change_task_path(task, status: "done"), method: :put, class: "btn btn-info btn-md btn-block"
+      - elsif task.status == 'done'
+        = link_to "<i class ='fa fa-arrow-left'></i>".html_safe, change_task_path(task, status: "doing"), method: :put, class: "btn btn-info btn-md btn-block"
+      - else
+        = link_to "<i class ='fa fa-arrow-right'></i>".html_safe, change_task_path(task, status: "doing"), method: :put, class: "btn btn-info btn-md btn-block"
+ 
