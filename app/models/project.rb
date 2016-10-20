@@ -4,6 +4,10 @@ class Project < ActiveRecord::Base
   has_many :posts
   has_many :users
 
+  validates :name, presence: true
+  validates :summary, presence: true
+
+  # need to complete
   def collaborator_emails=(emails)
     email_array = emails.split(",").map{|email| email.strip}
     email_array.each do |email|

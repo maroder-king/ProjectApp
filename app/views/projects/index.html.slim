@@ -4,6 +4,7 @@ table
   thead
     tr
       th Name
+      th Summary
       th Start date
       th End date
       th
@@ -14,6 +15,7 @@ table
     - @projects.each do |project|
       tr
         td = project.name
+        td = project.summary
         td = project.start_date
         td = project.end_date
         td = link_to 'Show', project
