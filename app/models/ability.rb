@@ -5,6 +5,8 @@ class Ability
 
     if user.admin?
 
+      can :manage, :all
+
     else
 
       can :update, Post do |post|
@@ -13,12 +15,9 @@ class Ability
       can :destroy, Post do |post|
         post.user == user
       end
-
       can :create, Post
 
       can :create, Team
-
-
 
     end
 

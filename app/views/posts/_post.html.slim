@@ -1,6 +1,6 @@
 .panel.panel-info
   .panel-heading
-    -if can? :edit , post
+    -if can? :update , post
       = link_to edit_post_path(post) do
         | Created #{time_ago_in_words(post.created_at)} ago
         | &nbsp; &nbsp; &nbsp;&nbsp;
